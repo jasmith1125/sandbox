@@ -43,7 +43,7 @@ class ChoreController extends BaseController {
     return Redirect::action('ChoreController@index');
     }
 
-    public function delete()
+    public function delete(Chore $chore)
     {
         // Show delete confirmation page.
         return View::make('delete', compact('chore'));
@@ -54,9 +54,9 @@ class ChoreController extends BaseController {
         // Handle the delete confirmation.
         $id = Input::get('chore');
         $chore = Chore::findOrFail($id);
-        $chore>delete();
+        $chore->delete();
 
-    return Redirect::action('ChoreController@index');
+        return Redirect::action('ChoreController@index');
     }
 
 }

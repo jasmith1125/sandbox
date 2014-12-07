@@ -7,6 +7,9 @@
     <form action="{{ action('ChoreController@handleDelete') }}" method="post" role="form">
         <input type="hidden" name="chore" value="{{ $chore->id }}" />
         <input type="submit" class="btn btn-danger" value="Yes" />
-        <a href="{{ action('ChoreController@index') }}" class="btn btn-default">No way!</a>
+        <a href="{{ action('ChoreController@index') }}" class="btn btn-default">Cancel</a>
     </form>
+
+    
 @stop
+

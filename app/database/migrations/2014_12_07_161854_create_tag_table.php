@@ -3,28 +3,30 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateChoresTable extends Migration {
+class CreateTagTable extends Migration {
 
 	/**
 	 * Run the migrations.
 	 *
 	 * @return void
 	 */
-	public function up()
+	# Create the tags table
+	public function up() 
 	{
-		Schema::create('chores', function($table) {
-
-			#AI, PK
+		Schema::create('tags', function($table) {
+			
+			# AI, PK
 			$table->increments('id');
-
+			
 			# created_at, updated_at columns
 			$table->timestamps();
-
-			# general data
-			$table->string('description');
-			$table->boolean('completed');
-
 			
+			# General data....
+			$table->string('name', 64);
+			
+			# Define foreign keys...
+			# none needed
+
 		});
 	}
 
@@ -35,7 +37,7 @@ class CreateChoresTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('chores');
+		//
 	}
 
 }

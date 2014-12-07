@@ -5,12 +5,14 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateChoresTable extends Migration {
 
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    Schema::create('chores', function($table) {
+	/**
+	 * Run the migrations.
+	 *
+	 * @return void
+	 */
+	public function up()
+	{
+		Schema::create('chores', function($table) {
 
 			#AI, PK
 			$table->increments('id');
@@ -20,24 +22,24 @@ class CreateChoresTable extends Migration {
 
 			# general data
 			$table->string('description');
-			$table->integer('user_id')->unsigned();
+			$table->integer('author_id')->unsigned(); //foreign key
 			$table->boolean('completed');
 
-			# define foreign key
+			// Define foreign key
 			$table->foreign('user_id')->references('id')->on('users');
 
+			
 		});
 	}
 
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::drop('chores');
-    }
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down()
+	{
+		Schema::drop('chores');
+	}
 
 }

@@ -22,7 +22,7 @@
 </head>
 <body>
  
-  <img src="img/giraffe_banner3.png" alt="zoo animals" >
+  <img src="../img/giraffe_banner3.png" alt="zoo animals" >
 
 <div id="container" class="large-12 large-centered columns">
 

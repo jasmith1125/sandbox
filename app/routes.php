@@ -19,8 +19,8 @@ Route::model('chore', 'Chore');
 // Show pages.
 Route::get('/', 'ChoreController@index');
 Route::get('/create', 'ChoreController@create');
-Route::get('/edit/{game}', 'ChoreController@edit');
-Route::get('/delete/{game}', 'ChoreController@delete');
+Route::get('/edit/{chore}', 'ChoreController@edit');
+Route::get('/delete/{chore}', 'ChoreController@delete');
 
 // Handle form submissions.
 Route::post('/create', 'ChoreController@handleCreate');
