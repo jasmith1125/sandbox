@@ -24,10 +24,24 @@
  
   <img src="../img/giraffe_banner3.png" alt="zoo animals" >
 
-<div id="container" class="large-12 large-centered columns">
+<div class="row">
+<div id="container" class="large-10 large-centered columns">
 
-   
+   @if(Session::get('flash_message'))
+        <div class='flash-message'>{{ Session::get('flash_message') }}</div>
+    @endif
+
+
+        <ul>
+        @if(Auth::check())
+            <li><a href='/logout'>Log out {{ Auth::user()->username; }}</a></li>
+        @else
+            <li><a href='/signup'>Sign up</a> or <a href='/login'>Log in</a></li>
+        @endif
+        </ul>
     </div>
+   </div>
+
 
 
     
@@ -40,7 +54,6 @@
   <script>
     $(document).foundation();
   </script>
-</div>
 </body>
 </html>
 

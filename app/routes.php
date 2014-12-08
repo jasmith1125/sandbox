@@ -13,6 +13,18 @@
 |
 */
 
+/**
+* User
+* (Explicit Routing)
+*/
+# Note: the beforeFilter for 'guest' on getSignup and getLogin is handled in the Controller
+Route::get('/signup', 'UserController@getSignup');
+Route::get('/login', 'UserController@getLogin' );
+Route::post('/signup', ['before' => 'csrf', 'uses' => 'UserController@postSignup'] );
+Route::post('/login', ['before' => 'csrf', 'uses' => 'UserController@postLogin'] );
+Route::get('/logout', ['before' => 'auth', 'uses' => 'UserController@getLogout'] );
+
+
 // Bind route parameters.
 Route::model('chore', 'Chore');
 

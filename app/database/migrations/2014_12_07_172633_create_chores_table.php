@@ -22,11 +22,11 @@ class CreateChoresTable extends Migration {
 
 			# general data
 			$table->string('description');
-			$table->integer('author_id')->unsigned(); //foreign key
+			//$table->integer('user_id')->unsigned(); //foreign key
 			$table->boolean('completed');
 
 			// Define foreign key
-			$table->foreign('user_id')->references('id')->on('users');
+			//$table->foreign('user_id')->references('id')->on('users');
 
 			
 		});
