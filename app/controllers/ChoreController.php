@@ -2,7 +2,7 @@
 
 class ChoreController extends BaseController {
 
-	public function index()
+	public function Index()
     {
         // Show a listing of chores.
         $chores = Chore::all();
@@ -11,6 +11,7 @@ class ChoreController extends BaseController {
 
     public function create()
     {
+        
         // Show the create chore form.
         return View::make('create');
     }

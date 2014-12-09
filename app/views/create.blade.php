@@ -1,6 +1,7 @@
 @extends('_master')
 
 @section('content')
+
 <div class="row">
     <div class="large-10 columns">
         <h1>Create Chore</h1><h2>View chore categories</h2>

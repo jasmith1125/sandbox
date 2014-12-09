@@ -12,7 +12,8 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-
+//show the home page
+Route::get('/', 'IndexController@getIndex');
 /**
 * User
 * (Explicit Routing)
