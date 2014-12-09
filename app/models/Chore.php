@@ -19,33 +19,13 @@ class Chore extends Eloquent {
     * Search among books, authors and tags
     * @return Collection
     */
-    public static function search($query) {
+    public function chores() {
 
-        # If there is a query, search the library with that query
-        if($query) {
+            return $this->belongsToUser('Chore');
 
-            # Eager load tags and author
-            $chores = Chore::with('tags')
-            ->WhereHas('tags', function($q) use($query) {
-                $q->where('name', 'LIKE', "%$query%");
-            })
-            ->orWhere('description', 'LIKE', "%$query%")
-            ->orWhere('completed', 'LIKE', "%$query%")
-            ->get();
-
-            # Note on what `use` means above:
-            # Closures may inherit variables from the parent scope.
-            # Any such variables must be passed to the `use` language construct.
-
-        }
-        # Otherwise, just fetch all books
-        else {
-            # Eager load tags and author
             $chores = Chore::with('tags')->get();
         }
 
-        return $chores;
-    }
 
 
 }

@@ -5,7 +5,7 @@ class ChoreController extends BaseController {
 	public function Index()
     {
         // Show a listing of chores.
-        $chores = Chore::all();
+        $chores = Chore::where('user_id','=',Auth::user()->id)->get();
         return View::make('index', compact('chores'));
     }
 
@@ -19,9 +19,10 @@ class ChoreController extends BaseController {
     public function handleCreate()
     {
         // Handle create form submission.
-        $chore = new Chore;
+        $chore = new Chore();
         $chore->description = Input::get('description');
         $chore->completed = Input::has('completed');
+        $chore->user_id = Auth::user()->id->get();
         $chore->save();
 
         return Redirect::action('ChoreController@index');

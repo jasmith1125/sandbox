@@ -58,7 +58,7 @@ class UserController extends BaseController {
 		# Log in
 		Auth::login($user);
 
-		return Redirect::to('create')->with('flash_message', 'Welcome to ChoreZoo!');
+		return Redirect::to('index')->with('flash_message', 'Welcome to ChoreZoo!');
 
 	}
 
